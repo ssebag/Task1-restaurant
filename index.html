@@ -19,12 +19,23 @@
           rel="stylesheet" 
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
            crossorigin="anonymous">
+           
 
 
          <link rel="stylesheet" href="style.css">      
     <title>Royal Restaurant</title>
 </head>
-<body>
+<body onload="onLoad()">
+  
+  <div class="container">
+    <div class="welcomeAlert" id="welcomeAlert">
+      <img src="images/welcome2.jpg" alt="">
+      <h2 class="welcomConth">Welcome to our restaurant website</h2>
+      <p class="welcomContp">You will see the most delicious and best dishes</p>
+      <button class="welcomContbtn" id="welcomContbtn">Ok</button>
+    </div>
+  </div>
+  
 
     <!--Header-->
     <div class="header">
@@ -92,22 +103,35 @@
               <img src="images/logoo.PNG" alt=""  >
             </div>
 
-            <div class="col-md-2 shopping-icon">
-               
-                    <div class="">
-                     <!-- shopping -->       
-                         <button class="btn text-light"><i class="fa fa-2x fa-shopping-cart"></i></button>
-                     <!-- search -->
-                         <button class="btn text-light"><i class="fa fa-2x fa-search"></i></button>
-                   
-                    </div> 
-            </div>
+
+          
+          
+            <div class="col-md-2 shopping-icon2" id="shoppingNav" >
+              <div class="alertt">
+                <div class="alert alert-warning alert-dismissible "  id="alert">
+                  <strong>Please!</strong> Put anything to search
+                </div>
+              </div>
+                
+                  <button class="btn text-light"><i class="fa fa-2x fa-shopping-cart"></i></button>
+          
+             
+      
+                 <button class="btn text-light" id="search" onclick="searchh()"><i class="fa fa-2x fa-search" ></i></button>
+                 <form class="formm1" >
+                  <input type="text" class="searchInput" placeholder="Search" id="formm" onfocus="focuss()" onsubmit="required()"> 
+                  
+                </form>
+               </div>
+             
+          </div>
         </nav>
       </div>
     <!--endNavbar-->
     
    
     <!--slider-->
+    
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -143,24 +167,37 @@
         <h1><span class="text-warning slider-span">Royal </span> Restaurant</h1>
         <h3>enjoy with us</h3>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+       <!-- slider alert for previous-->
+       <div class="previousDetails" id="previousDetails">
+        <div class="alert alert-primary alert-dismissible "  id="alert">
+           Press to show what previous
+        </div>
+     </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" id="previousslider" onmouseover="previous()">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <!-- slider alert for next -->
+      <div class="nextDetails" id="nextDetails">
+        <div class="alert alert-primary alert-dismissible "  id="alert">
+          Press to show what next
+        </div>
+     </div>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" id="nextslider" onmouseover="next()">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>   
     <!--endSlider-->
     <!--content-->
+   
        <div class="container1 py-4 ">
         <div class="row pt-2 pb-4">
           <h1 class="content-title pb-4">Our Dishes</h1>
             <!--card 1-->
-         <div class="col-md-3 col-12  ">
+         <div class="col-md-3 col-12  " >
            <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="images/food1.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/food1.jpg" alt="Card image cap" >
             <div class="card-body">
               <h5 class="card-title">Hamburger</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -172,7 +209,7 @@
           <div class="col-md-3 col-12">
            
             <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="images/food10.jpg" alt="Card image cap">
+              <img class="card-img-top" src="images/food10.jpg" alt="Card image cap" >
               <div class="card-body">
                 <h5 class="card-title">Kunafa</h5>
                 <p class="card-text">Et obcaecati soluta eum architecto excepturi quo omnis perferendis est laborum enim eos nemo 
@@ -198,7 +235,7 @@
            <div class="col-md-3 col-12">
             
             <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="images/food8.jpg" alt="Card image cap">
+              <img class="card-img-top" src="images/food8.jpg" alt="Card image cap" >
               <div class="card-body">
                 <h5 class="card-title">Pizza</h5>
                 <p class="card-text"> Ex odit impedit aut reiciendis ducimus qui architecto quidem ut doloribus mollitia ex voluptas corrupti ut fugiat omnis est minus necessitatibus!</p>
@@ -207,13 +244,20 @@
             </div>
           </div>
         </div>
-        <!--row2-->
-        <div class="row py-4">
+        <!--spinner-->
+    <div class="spinner-border text-warning spinner-1" role="status" id="spinner">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <!--endSpinner-->
+
+        <div class="reload" id="reload" >
+          <!--row2-->
+         <div class="row py-4" >
           <!--card 2-->
           <div class="col-md-3 col-12">
            <!--card 1-->
            <div class="card" style="width: 18rem;">
-             <img class="card-img-top" src="images/food16.jpg" alt="Card image cap">
+             <img class="card-img-top" src="images/food16.jpg" alt="Card image cap" >
              <div class="card-body">
                <h5 class="card-title">Ice cream</h5>
                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -225,7 +269,7 @@
            <div class="col-md-3 col-12">
             
              <div class="card" style="width: 18rem;">
-               <img class="card-img-top" src="images/food6.jpg" alt="Card image cap">
+               <img class="card-img-top" src="images/food6.jpg" alt="Card image cap" >
                <div class="card-body">
                  <h5 class="card-title">Pizza Special</h5>
                  <p class="card-text">Et obcaecati soluta eum architecto excepturi quo omnis perferendis est laborum enim eos nemo 
@@ -239,7 +283,7 @@
            <div class="col-md-3 col-12">
              
              <div class="card" style="width: 18rem;">
-               <img class="card-img-top" src="images/food12.jpg" alt="Card image cap">
+               <img class="card-img-top" src="images/food12.jpg" alt="Card image cap" >
                <div class="card-body">
                  <h5 class="card-title">Juices</h5>
                  <p class="card-text">Sed quod consectetur ut magnam omnis qui autem tempora. Sit omnis voluptatem est consequatur velit ad iure nihil et veniam voluptate.</p>
@@ -251,7 +295,7 @@
             <div class="col-md-3 col-12">
              
              <div class="card" style="width: 18rem;">
-               <img class="card-img-top" src="images/food9.jpg" alt="Card image cap">
+               <img class="card-img-top" src="images/food9.jpg" alt="Card image cap" >
                <div class="card-body">
                  <h5 class="card-title">Gratin</h5>
                  <p class="card-text"> Ex odit impedit aut reiciendis ducimus qui architecto quidem ut doloribus mollitia ex voluptas corrupti ut fugiat omnis est minus necessitatibus!</p>
@@ -260,68 +304,67 @@
              </div>
            </div>
          </div>
+        </div>
          <!--row3-->
-         <div class="row py-4">
-          <!--card 2-->
-          <div class="col-md-3 col-12">
-           <!--card 1-->
-           <div class="card" style="width: 18rem;">
-             <img class="card-img-top" src="images/food2.jpg" alt="Card image cap">
-             <div class="card-body">
-               <h5 class="card-title">Shawarma</h5>
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <a href="order.html" class="btn btn-warning button-card">Order Now</a>
-             </div>
-           </div>
-         </div>
-           <!--card 2-->
-           <div class="col-md-3 col-12">
-            
-             <div class="card" style="width: 18rem;">
-               <img class="card-img-top" src="images/food7.jpg" alt="Card image cap">
-               <div class="card-body">
-                 <h5 class="card-title">Cakes</h5>
-                 <p class="card-text">Et obcaecati soluta eum architecto excepturi quo omnis perferendis est laborum enim eos nemo 
-                   porro. Et dolore modi rem incidunt architecto est quaerat doloremque . </p>
-               
-                 <a href="order.html" class="btn btn-warning button-card">Order Now</a>
-               </div>
-             </div>
-           </div>
-           <!--card 3-->
-           <div class="col-md-3 col-12">
-             
-             <div class="card" style="width: 18rem;">
-               <img class="card-img-top" src="images/food3.jpg" alt="Card image cap">
-               <div class="card-body">
-                 <h5 class="card-title">Chicken</h5>
-                 <p class="card-text">Sed quod consectetur ut magnam omnis qui autem tempora. Sit omnis voluptatem est consequatur velit ad iure nihil et veniam voluptate.</p>
-                 <a href="order.html" class="btn btn-warning button-card">Order Now</a>
-               </div>
-             </div>
-           </div>
-            <!--card 4-->
+         <div class="reload2"  id="reload2">
+          <div class="row py-4">
+            <!--card 2-->
             <div class="col-md-3 col-12">
-             
+             <!--card 1-->
              <div class="card" style="width: 18rem;">
-               <img class="card-img-top" src="images/food15.jpg" alt="Card image cap">
+               <img class="card-img-top" src="images/food2.jpg" alt="Card image cap" >
                <div class="card-body">
-                 <h5 class="card-title">Frappuccino</h5>
-                 <p class="card-text"> Ex odit impedit aut reiciendis ducimus qui architecto quidem ut doloribus mollitia ex voluptas corrupti ut fugiat omnis est minus necessitatibus!</p>
+                 <h5 class="card-title">Shawarma</h5>
+                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                  <a href="order.html" class="btn btn-warning button-card">Order Now</a>
+               </div>
+             </div>
+           </div>
+             <!--card 2-->
+             <div class="col-md-3 col-12">
+              
+               <div class="card" style="width: 18rem;">
+                 <img class="card-img-top" src="images/food7.jpg" alt="Card image cap" >
+                 <div class="card-body">
+                   <h5 class="card-title">Cakes</h5>
+                   <p class="card-text">Et obcaecati soluta eum architecto excepturi quo omnis perferendis est laborum enim eos nemo 
+                     porro. Et dolore modi rem incidunt architecto est quaerat doloremque . </p>
+                 
+                   <a href="order.html" class="btn btn-warning button-card">Order Now</a>
+                 </div>
+               </div>
+             </div>
+             <!--card 3-->
+             <div class="col-md-3 col-12">
+               
+               <div class="card" style="width: 18rem;">
+                 <img class="card-img-top" src="images/food3.jpg" alt="Card image cap" >
+                 <div class="card-body">
+                   <h5 class="card-title">Chicken</h5>
+                   <p class="card-text">Sed quod consectetur ut magnam omnis qui autem tempora. Sit omnis voluptatem est consequatur velit ad iure nihil et veniam voluptate.</p>
+                   <a href="order.html" class="btn btn-warning button-card">Order Now</a>
+                 </div>
+               </div>
+             </div>
+              <!--card 4-->
+              <div class="col-md-3 col-12">
+               
+               <div class="card" style="width: 18rem;">
+                 <img class="card-img-top" src="images/food15.jpg" alt="Card image cap">
+                 <div class="card-body">
+                   <h5 class="card-title">Frappuccino</h5>
+                   <p class="card-text"> Ex odit impedit aut reiciendis ducimus qui architecto quidem ut doloribus mollitia ex voluptas corrupti ut fugiat omnis est minus necessitatibus!</p>
+                   <a href="order.html" class="btn btn-warning button-card">Order Now</a>
+                 </div>
                </div>
              </div>
            </div>
          </div>
        </div>
     <!--endContent-->
-    <!--spinner-->
-    <div class="spinner-border text-warning spinner-1" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-    <!--endSpinner-->
+    
     <!--footer1-->
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <footer class="text-center text-lg-start bg-light text-muted my-4">
      
       <!-- Section: Links  -->
       <section class="py-1">
@@ -452,8 +495,9 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" 
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-
+    <script src="script.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
      
 </body>

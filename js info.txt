@@ -1,0 +1,10 @@
+--------1---------
+Adding a notification "welcome" when my page has just loaded
+-------2----------
+when i click on the search icon, the search field will appear
+-------3----------
+when i focus on the search field, the background color will change
+-------4----------
+when i mouse over at the next cursor in slider the notification will appear and the same process will happen on previous pointer
+-------5----------
+when my page has just loaded the first row off card immediate appear after 6 second the seconde row will appear and spinner will disappear then after 2 second the third row will appear
